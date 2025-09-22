@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(42, 47%, 97%);
+  --foreground: hsl(30, 27%, 25%);
+  --card: hsl(45, 43%, 95%);
+  --card-foreground: hsl(30, 27%, 25%);
+  --popover: hsl(45, 43%, 95%);
+  --popover-foreground: hsl(30, 27%, 25%);
+  --primary: hsl(43, 74%, 45%);
+  --primary-foreground: hsl(45, 43%, 95%);
+  --secondary: hsl(40, 31%, 87%);
+  --secondary-foreground: hsl(30, 27%, 35%);
+  --muted: hsl(42, 32%, 92%);
+  --muted-foreground: hsl(30, 15%, 45%);
+  --accent: hsl(43, 74%, 45%);
+  --accent-foreground: hsl(45, 43%, 95%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(40, 18%, 82%);
+  --input: hsl(40, 18%, 82%);
+  --ring: hsl(43, 74%, 45%);
+  --radius: 0.75rem;
+  --chart-1: hsl(43, 74%, 45%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(45, 43%, 95%);
+  --sidebar-foreground: hsl(30, 27%, 25%);
+  --sidebar-primary: hsl(43, 74%, 45%);
+  --sidebar-primary-foreground: hsl(45, 43%, 95%);
+  --sidebar-accent: hsl(43, 74%, 45%);
+  --sidebar-accent-foreground: hsl(45, 43%, 95%);
+  --sidebar-border: hsl(40, 18%, 82%);
+  --sidebar-ring: hsl(43, 74%, 45%);
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Noto Serif KR", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --shadow-2xs: 0px 1px 2px 0px hsl(30, 27%, 25%, 0.05);
+  --shadow-xs: 0px 1px 2px 0px hsl(30, 27%, 25%, 0.05);
+  --shadow-sm: 0px 1px 3px 0px hsl(30, 27%, 25%, 0.1), 0px 1px 2px 0px hsl(30, 27%, 25%, 0.06);
+  --shadow: 0px 1px 3px 0px hsl(30, 27%, 25%, 0.1), 0px 1px 2px 0px hsl(30, 27%, 25%, 0.06);
+  --shadow-md: 0px 4px 6px -1px hsl(30, 27%, 25%, 0.1), 0px 2px 4px -1px hsl(30, 27%, 25%, 0.06);
+  --shadow-lg: 0px 10px 15px -3px hsl(30, 27%, 25%, 0.1), 0px 4px 6px -2px hsl(30, 27%, 25%, 0.05);
+  --shadow-xl: 0px 20px 25px -5px hsl(30, 27%, 25%, 0.1), 0px 10px 10px -5px hsl(30, 27%, 25%, 0.04);
+  --shadow-2xl: 0px 25px 50px -12px hsl(30, 27%, 25%, 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(30, 27%, 15%);
+  --foreground: hsl(42, 47%, 90%);
+  --card: hsl(30, 27%, 18%);
+  --card-foreground: hsl(42, 47%, 90%);
+  --popover: hsl(30, 27%, 18%);
+  --popover-foreground: hsl(42, 47%, 90%);
+  --primary: hsl(43, 74%, 55%);
+  --primary-foreground: hsl(30, 27%, 15%);
+  --secondary: hsl(30, 27%, 25%);
+  --secondary-foreground: hsl(42, 47%, 90%);
+  --muted: hsl(30, 27%, 22%);
+  --muted-foreground: hsl(42, 20%, 65%);
+  --accent: hsl(43, 74%, 55%);
+  --accent-foreground: hsl(30, 27%, 15%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(30, 20%, 30%);
+  --input: hsl(30, 20%, 30%);
+  --ring: hsl(43, 74%, 55%);
+  --chart-1: hsl(43, 74%, 55%);
+  --chart-2: hsl(159, 100%, 46%);
+  --chart-3: hsl(42, 93%, 66%);
+  --chart-4: hsl(147, 79%, 52%);
+  --chart-5: hsl(341, 75%, 61%);
+  --sidebar: hsl(30, 27%, 18%);
+  --sidebar-foreground: hsl(42, 47%, 90%);
+  --sidebar-primary: hsl(43, 74%, 55%);
+  --sidebar-primary-foreground: hsl(30, 27%, 15%);
+  --sidebar-accent: hsl(43, 74%, 55%);
+  --sidebar-accent-foreground: hsl(30, 27%, 15%);
+  --sidebar-border: hsl(30, 20%, 30%);
+  --sidebar-ring: hsl(43, 74%, 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-serif antialiased bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(45, 43%, 98%) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(42, 47%, 96%) 0%, transparent 50%);
+  }
+
+  .dark body {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(30, 27%, 20%) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(30, 27%, 18%) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* Bible Book Styling */
+  .bible-book {
+    background: linear-gradient(
+      145deg,
+      hsl(45, 43%, 96%) 0%,
+      hsl(42, 40%, 94%) 50%,
+      hsl(40, 35%, 92%) 100%
+    );
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    border: 2px solid hsl(35, 30%, 85%);
+    position: relative;
+  }
+  
+  .bible-book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.02) 0%, transparent 50%),
+      linear-gradient(90deg, transparent 48%, rgba(139, 69, 19, 0.02) 49%, rgba(139, 69, 19, 0.02) 51%, transparent 52%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  .dark .bible-book {
+    background: linear-gradient(
+      145deg,
+      hsl(30, 27%, 22%) 0%,
+      hsl(30, 25%, 20%) 50%,
+      hsl(30, 23%, 18%) 100%
+    );
+    border: 2px solid hsl(30, 20%, 25%);
+  }
+  
+  .bible-page {
+    background: linear-gradient(
+      to bottom,
+      hsl(45, 50%, 98%) 0%,
+      hsl(42, 45%, 96%) 100%
+    );
+    border: 1px solid hsl(40, 25%, 88%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bible-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 23px,
+        rgba(200, 180, 140, 0.05) 24px,
+        rgba(200, 180, 140, 0.05) 25px
+      );
+    pointer-events: none;
+  }
+  
+  .dark .bible-page {
+    background: linear-gradient(
+      to bottom,
+      hsl(30, 27%, 25%) 0%,
+      hsl(30, 25%, 23%) 100%
+    );
+    border: 1px solid hsl(30, 20%, 30%);
+  }
+  
+  .bible-binding {
+    background: linear-gradient(
+      to bottom,
+      hsl(35, 40%, 75%) 0%,
+      hsl(30, 35%, 65%) 50%,
+      hsl(25, 30%, 55%) 100%
+    );
+    box-shadow: 
+      inset 2px 0 4px rgba(0, 0, 0, 0.2),
+      inset -2px 0 4px rgba(0, 0, 0, 0.2),
+      0 0 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .bible-binding::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 100%
+    );
+    transform: translateX(-50%);
+  }
+  
+  .dark .bible-binding {
+    background: linear-gradient(
+      to bottom,
+      hsl(30, 20%, 35%) 0%,
+      hsl(30, 18%, 30%) 50%,
+      hsl(30, 16%, 25%) 100%
+    );
+  }
+  
+  .chapter-header {
+    @apply font-serif font-bold text-amber-800 dark:text-amber-200 mb-4 pb-2;
+    border-bottom: 2px solid hsl(43, 74%, 45%);
+    position: relative;
+  }
+  
+  .chapter-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      hsl(43, 74%, 65%) 50%,
+      transparent 100%
+    );
+  }
+  
+  .verse-line {
+    @apply mb-3;
+    line-height: 1.6;
+  }
+  
+  .verse-number {
+    @apply font-serif font-bold text-amber-700 dark:text-amber-300;
+    font-size: 0.8rem;
+    vertical-align: super;
+    line-height: 1;
+  }
+  
+  .bible-texture {
+    background-image: 
+      radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 49%, rgba(139, 69, 19, 0.02) 50%, transparent 51%);
+  }
+  
+  .typing-correct {
+    @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200;
+  }
+  
+  .typing-incorrect {
+    @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+  }
+  
+  .typing-cursor {
+    @apply border-l-2 border-primary;
+  }
+
+  /* Bible Book Styles */
+  .bible-book {
+    background: linear-gradient(135deg, 
+      hsl(45, 43%, 98%) 0%, 
+      hsl(42, 47%, 96%) 30%, 
+      hsl(40, 35%, 94%) 100%);
+    box-shadow: 
+      0 10px 25px -5px rgba(139, 69, 19, 0.25),
+      0 4px 6px -2px rgba(139, 69, 19, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+  }
+
+  .dark .bible-book {
+    background: linear-gradient(135deg, 
+      hsl(30, 27%, 20%) 0%, 
+      hsl(30, 27%, 18%) 30%, 
+      hsl(30, 27%, 16%) 100%);
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.5),
+      0 4px 6px -2px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+  }
+
+  .bible-page {
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.02) 0%, transparent 40%),
+      linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.01) 50%, transparent 100%);
+    border-right: 1px solid rgba(139, 69, 19, 0.1);
+  }
+
+  .dark .bible-page {
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 40%),
+      linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.02) 50%, transparent 100%);
+    border-right: 1px solid rgba(139, 69, 19, 0.2);
+  }
+
+  .bible-binding {
+    background: linear-gradient(to right, 
+      transparent 0%, 
+      rgba(139, 69, 19, 0.1) 30%, 
+      rgba(139, 69, 19, 0.15) 50%, 
+      rgba(139, 69, 19, 0.1) 70%, 
+      transparent 100%);
+    box-shadow: 
+      inset 2px 0 4px rgba(139, 69, 19, 0.2),
+      inset -2px 0 4px rgba(139, 69, 19, 0.2);
+  }
+
+  .dark .bible-binding {
+    background: linear-gradient(to right, 
+      transparent 0%, 
+      rgba(139, 69, 19, 0.2) 30%, 
+      rgba(139, 69, 19, 0.3) 50%, 
+      rgba(139, 69, 19, 0.2) 70%, 
+      transparent 100%);
+  }
+
+  .verse-clickable {
+    @apply cursor-pointer rounded px-1;
+  }
+
+  .verse-selected {
+    @apply bg-amber-100 dark:bg-amber-900/50 border-l-2 border-amber-500 pl-1;
+  }
+
+  .chapter-header {
+    @apply text-center font-serif font-bold text-lg text-amber-800 dark:text-amber-200 mb-4 pb-2 border-b border-amber-200 dark:border-amber-800;
+  }
+}
